@@ -12,9 +12,10 @@ ext {
 
 dependencies {
     implementation(group: 'org.vividus', name: 'vividus', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-electron', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-rest-api', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-rest-api', version: '0.5.4-SNAPSHOT')
     implementation(group: 'org.vividus', name: 'vividus-plugin-json', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-web-app', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-mobile-app', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-web-app', version: '0.5.4-SNAPSHOT')
+    implementation(group: 'org.vividus', name: 'vividus-plugin-mobile-app', version: '0.5.4-SNAPSHOT')
+    implementation(group: 'org.vividus', name: 'vividus-plugin-mobitru', version: '0.5.4-SNAPSHOT')
+    implementation(group: 'org.vividus', name: 'vividus-plugin-visual', version: '0.5.4-SNAPSHOT')
 }
