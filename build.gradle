@@ -7,14 +7,22 @@ ext.buildSystemDir = file("${buildSystemPath}")
 apply from: "${buildSystemPath}/vividus-test-project.gradle"
 
 ext {
-    vividusVersion = '0.5.2'
+    vividusVersion = '0.5.3'
 }
 
 dependencies {
     implementation(group: 'org.vividus', name: 'vividus', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-electron', version: vividusVersion)
     implementation(group: 'org.vividus', name: 'vividus-plugin-rest-api', version: vividusVersion)
-    implementation(group: 'org.vividus', name: 'vividus-plugin-json', version: vividusVersion)
     implementation(group: 'org.vividus', name: 'vividus-plugin-web-app', version: vividusVersion)
     implementation(group: 'org.vividus', name: 'vividus-plugin-mobile-app', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-html', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-json', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-xml', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-applitools', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-datetime', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-email', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-visual', version: vividusVersion)
+    implementation(group: 'org.vividus', name: 'vividus-plugin-web-app-to-rest-api', version: vividusVersion)
+
+
 }
