@@ -1,17 +1,47 @@
 Composite: When I login with username `$user` and password `$password`
-When I click on element located by `By.xpath(//a[text()="Log in"])`
+When I click on element located by `By.xpath(//*[text()="Log in"])`
 Then the page with the URL 'https://trello.com/login' is loaded
-When I enter `<user>` in field located `By.xpath(//input[@id="user"])`
-When I click on element located by `By.xpath(//input[@id="login"])`
+When I enter `<user>` in field located `By.xpath(//*[@id="user"])`
+When I click on element located by `By.xpath(//*[@id="login"])`
 Then the page with the URL containing '/login' is loaded
-When I enter `<password>` in field located by `By.xpath(//input[@id="password"])`
+When I enter `<password>` in field located by `By.xpath(//*[@id="password"])`
 When I click on element located by `By.xpath(//*[@type="submit"])`
 
 Composite: When I logout
-When I click on element located by `By.xpath(//button[@data-testid="header-member-menu-button"])`
+When I click on element located by `By.xpath(//*[@data-testid="header-member-menu-button"])`
 Then the text 'Log out' exists
-When I click on element located by `By.xpath(//button[@data-testid="account-menu-logout"])`
+When I click on element located by `By.xpath(//*[@data-testid="account-menu-logout"])`
 Then the text 'Log out' exists
-When I click on element located by `By.xpath(//button[@data-testid="logout-button"]/span)`
+When I click on element located by `By.xpath(//*[@data-testid="logout-button"]/span)`
 When I wait until the page title contains the text 'Manage Your Team'
 Then the page with the URL 'https://trello.com/home' is loaded
+
+Composite: When I delete board with `$boardname`
+Then number of elements found by `By.xpath(//h2[text()='Your boards'])` is EQUAL_TO `1`
+When I hover mouse over element located `By.xpath(//*[@data-testid="collapsible-list-items"]//*[@title="<boardname> (currently active)"])`
+When I wait until element located by `By.xpath(//*[@data-testid="collapsible-list-items"]//*[a[@title="<boardname> (currently active)"]]//*[@class="nch-icon zb2xH7sIF-ak3S ttnK8PUoemc3bn xSdEzXN0p5IsmX"])` appears
+When I click on element located by `By.xpath(//*[@data-testid="collapsible-list-items"]//*[a[@title="<boardname> (currently active)"]]//*[@class="nch-icon zb2xH7sIF-ak3S ttnK8PUoemc3bn xSdEzXN0p5IsmX"])`
+When I wait until element located by `By.xpath(//*[@title='Close board'])` appears
+When I click on element located by `By.xpath(//*[@title='Close board'])`
+When I wait until element located by `By.xpath(//*[@title='Close'])` appears
+When I click on element located by `By.xpath(//*[@title='Close'])`
+When I wait until element located by `By.xpath(//*[@data-testid="close-board-delete-board-button"])` appears
+When I click on element located by `By.xpath(//*[@data-testid="close-board-delete-board-button"])`
+When I wait until element located by `By.xpath(//*[@data-testid="close-board-delete-board-confirm-button"])` appears
+When I click on element located by `By.xpath(//*[@data-testid="close-board-delete-board-confirm-button"])`
+When I wait until element located by `By.xpath(//*[@data-testid='home-team-boards-tab'])` appears
+When I click on element located by `By.xpath(//*[@data-testid='home-team-boards-tab'])`
+When I wait until element located by `By.xpath(//*[@class='Ts+YceGnvTbKoG HPCwi137Em5EYI oHXuEbt5oSNLyC JIXQq8gDYY04N6'])` appears
+
+Composite: When I create board with `$boardname`, '$BoardPageTitle', '$BoardPageUrl'
+When I wait until element located by `By.xpath(//*[@data-testid="header-create-menu-button"])` appears
+When I click on element located by `By.xpath(//*[@data-testid="header-create-menu-button"])`
+When I wait until element located by `By.xpath(//*[@data-testid="header-create-board-button"])` appears
+When I click on element located by `By.xpath(//*[@data-testid="header-create-board-button"])`
+When I click on element located by `By.xpath(//*[@id="background-picker"]//button[@title="Purple"])`
+When I enter `<boardname>` in field located by `By.xpath(//*[@data-testid="create-board-title-input"])`
+When I click on element located by `By.xpath(//*[@data-testid="create-board-submit-button"])`
+When I wait until element located by `By.xpath(//*[@class='js-board-editing-target board-header-btn-text'])` appears
+Then the page title IS_EQUAL_TO '<BoardPageTitle>'
+Then the page with the URL containing '/<BoardPageUrl>' is loaded
+Then number of elements found by `By.xpath(//*[@class="js-board-editing-target board-header-btn-text"][text()='<boardname>'])` is EQUAL_TO `1`
